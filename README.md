@@ -1,38 +1,38 @@
-# GraviticAlchemy (Unity Scaffold)
+# Gravitic Alchemy (AGT Universe Prototype)
 
-This repository now contains **Step 1 scaffolding** for a Unity-based project.
-It includes a Unity project folder layout and placeholder C# scripts only (no full physics or rendering implementation yet).
+This repository contains Unity scripts for an early **Acoustic Gravitic Theory** universe viewer prototype.
 
-## Unity version (Windows 11)
+## Open the project in Unity
 
-Install **Unity 2022.3 LTS** (recommended: **2022.3.42f1**) with Unity Hub on Windows 11.
+1. Install **Unity Hub**.
+2. In Unity Hub, install a 3D-capable editor version (Unity 2022 LTS or newer).
+3. Click **Add** in Unity Hub and select this folder: `GraviticAlchemy`.
+4. Open the project.
+5. Open the main scene from **Project** window:
+   - `Assets/Scenes/Main.unity` (create this scene if it does not exist yet, then attach the scripts below).
+6. Click **Play**.
 
-> Why this version: it is an LTS release and matches the `ProjectSettings/ProjectVersion.txt` in this repository.
+## Scene wiring (Step 2 scripts)
 
-## Open this project in Unity Hub
+Add the following scripts to your scene:
+- `UniverseManager` on a manager object (assign `Universe Root`, `Earth Root`, and targets).
+- `FilamentNetwork` on a universe root object to generate procedural nodes/filaments.
+- `InfoPanelController` on a UI manager object and link a left-panel `Text` component.
+- `HoverInfo` is attached automatically to generated filament objects and can be added manually to Earth objects.
 
-1. Install Unity Hub.
-2. In Unity Hub, go to **Projects**.
-3. Click **Open** (or **Add project from disk** depending on Hub version).
-4. Select this repository folder: `GraviticAlchemy`.
-5. If prompted, install/use Unity Editor **2022.3.42f1**.
-6. Open the project.
+## Camera + scale controls
 
-## Press Play in the Unity Editor
+- **Orbit camera:** hold **Right Mouse Button** and move mouse.
+- **Zoom:** use **Mouse Wheel**.
+- **Switch scales:**
+  - Press **1** for Universe view.
+  - Press **2** for Earth view.
+- **Auto switch thresholds:** zooming in past the Earth threshold enters Earth view; zooming out past universe threshold returns to universe view.
 
-1. Wait for Unity to import assets and compile scripts.
-2. Open or create a scene in the editor.
-3. Click the **Play** button at the top center of the Unity Editor.
-4. Click **Play** again to stop.
+## Hover info panel
 
-## Included Step 1 scripts (empty scaffolding)
-
-- `UniverseManager`
-- `MediumParameters`
-- `WaveField`
-- `FilamentNetwork`
-- `EarthGravityModel`
-- `InfoPanelController`
-- `WavelengthController`
-
-All scripts currently contain empty classes inheriting from `MonoBehaviour`.
+Move the mouse over generated cosmic web nodes/filaments (or any object with `HoverInfo`) to display:
+- object name,
+- object type,
+- scale level,
+in the left-hand panel.
